@@ -4,10 +4,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Weather Dashboard</title>
 </head>
 <body>
+    <header class="text-white text-center p-2 bg-primary">
+        <h1>Weather Dashboard</h1>
+    </header>
+    <main class="container-fluid">
+        <!-- city search -->
+        <div class="row">
+            <div class="search-column col-12 col-md p-2">
+            <form id="city-search-form" class="border p-2">
+                <label for="search" id="search">
+            <h2>Search for a City</h2>
+                </label>
+                <input type="search" id="city" class="form-input" autofocus="true"/><button type="submit" class="btn btn-primary">Search</button>
+            </form>
+        </div>
+        <div>
+            <!-- Results -->
+        </div>
+        <div>
+            <!-- five day forecast -->
+        </div>
+    </main>
  
     <script src="./assets/js/index.js"></script>
 </body>
