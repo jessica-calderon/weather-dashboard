@@ -26,11 +26,17 @@
                 <i class="fas fa-search"></i>
             </form>
         </div>
+        <div class="weather-results">
         <div class="col-12 col-md-9">
             <div class = "row city border" id = "results">
                 <div class="col-12">
                     <h2 id="search-results"></h2>
-                    <div id="weather" class="list-group"></div>
+                    <img src="" id="weather-icon">
+                    </div>
+                    <div><p class="temp"></p></div>
+                    <div><p class="humidity"></p></div>
+                    <div><p class="wind"></p></div>
+                    <div><p class="uv"></p></div>
                 </div>
             </div>
         <div id="forecast" class="border row">
@@ -39,6 +45,7 @@
           </div>
         </div>
     </div>
+</div>
     </main>
     <!-- jquery, script, and moment src -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

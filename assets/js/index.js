@@ -37,13 +37,27 @@ function cityLocator() {
         }
     })
 }
-
+// display current and future weather for that city
 function currentWeather(data) {
-    
+    $("weather-results").addClass("visible");
+    // pull and display current weather icon 
+    $("#weather-icon")[0].src = "http://openweathermap.org/img/wn/" + data.current.weather[0].icon + "@2x.png";
+    // convert current temp to a fixed single value string and display in farenheit in html
+    $(".temp")[0].textContent = "Temperature: " data.current.temp.toFixed(1) + "\u2109";
+    // pull and display current humidity levels
+    $(".humidity")[0].textContent = "Humidity: " + data.current.humidity + "% ";
+    // pull current wind speed and convert to single digit string and display
+    $(".wind")[0].textContent = "Wind Speed: " + data.current.wind_speed.toFixed(1) + " MPH";
+    // pull display current uv index
+    $(".uv")[0].textContent = " " + data.current.uvi;
+
+    // moderate, severe, and favorable logic    
+  /*   if (data.current.uvi < 3) {
+            $(".uv")
+        } */
 }
 
 
-// display current and future weather for that city
 
 // save search history to localstorage
 
