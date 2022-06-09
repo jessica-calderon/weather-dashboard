@@ -14,14 +14,14 @@ function search(city) {
         $("#forecast").empty();
         var date = moment().format('l');
 
-        // city html section
+        // city html section and forecast elements //
         var cityEl = $("<h2>").text(response.name);
         var dateEl = cityEl.append(" " + date);
         var temp = $("<p>").text("Temperature: " + response.main.temp);
         var humidity = $("<p>").text("Humidity: " + response.main.humidity);
         var wind = $("<p>").text("Wind Speed: " + response.wind.speed);
         var weather = response.weather[0].main;
-
+        // weather icons // 
         if (weather === "Rain") {
             var icon = $('<img>').attr("src", "http://openweathermap.org/img/wn/09d.png");
             icon.attr("style", "width: 60px; height: 60px");
@@ -38,13 +38,33 @@ function search(city) {
             var icon = $('<img>').attr("src", "http://openweathermap.org/img/wn/13d.png");
             icon.attr("style", "width: 60px; height: 60px");
         }
-    })
+        var newDivEl = $('<div>')
+        newDivEl.append(dateEl, icon, temp, humidity, wind);
+        $("#forecast").html(newDivEl);
+// lat/lon for searched city //
+        var lat = response.coord.lat;
+        var lon = response.coord.lon;
+        var uvUrl = "https://api.openweathermap.org/data/2.5/uvi?&appid=" + apiKey + "&lat=" + lat + "&lon=" + lon;
+// return uv info // 
+        $.ajax({
+            url: uvUrl,
+            method: 'GET'
+        })
+        .then(function (response) {
+            $('#uv-levels').empty();
+            var uv = response.value;
+            var uvDiv = $('<p class="uv">').text("UV Index: " + response.value);
+            $('#uv-levels').html(uvDiv);
+        });
+    });
 }
+
+/* weekly forecast logic */
 
 /* city location logic */
 $("#search-btn").on("click", function(event) {
     event.preventDefault();
-    // set and save searched city variable to localstorage
+    // set and save searched city variable to localstorage //
     var citySearch = $("#city-search").val().trim();
     var savedSearch = $(this).siblings("input").val();
     var saved = [];
