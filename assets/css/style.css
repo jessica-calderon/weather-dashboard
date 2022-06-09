@@ -5,3 +5,13 @@
 .styled-btn { 
     width: 200px;
 }
+.div-style {
+    height: auto;
+    width: 175px;
+}
+.img {
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    justify-items: center;
+}
