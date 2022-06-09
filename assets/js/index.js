@@ -1,6 +1,6 @@
 // apiKey = "8146fc372939ba1529f0cee4a074681a";
 
-// search button logic
+// city search logic 
 function cityLocator() {
     var city = $("#city-search")[0].value.trim();
     var apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=8146fc372939ba1529f0cee4a074681a"; 
@@ -37,13 +37,15 @@ function cityLocator() {
         }
     })
 }
+
+
 // display current and future weather for that city
 function currentWeather(data) {
     $("weather-results").addClass("visible");
     // pull and display current weather icon 
     $("#weather-icon")[0].src = "http://openweathermap.org/img/wn/" + data.current.weather[0].icon + "@2x.png";
-    // convert current temp to a fixed single value string and display in farenheit in html
-    $(".temp")[0].textContent = "Temperature: " data.current.temp.toFixed(1) + "\u2109";
+    /* // convert current temp to a fixed single value string and display in farenheit in html
+    $(".temp")[0].textContent = "Temperature: " data.current.temp.toFixed(1) + "\u2109"; */
     // pull and display current humidity levels
     $(".humidity")[0].textContent = "Humidity: " + data.current.humidity + "% ";
     // pull current wind speed and convert to single digit string and display
@@ -56,8 +58,14 @@ function currentWeather(data) {
             $(".uv")
         } */
 }
+// search button logic
+$(".search-btn").on("click", function (event) {
+    event.preventDefault();
+    console.log("click");
+    cityLocator();
+    $("#city-search-form")[0].reset();
 
-
+})
 
 // save search history to localstorage
 
