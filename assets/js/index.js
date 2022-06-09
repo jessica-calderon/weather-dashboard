@@ -1,81 +1,34 @@
-// apiKey = "8146fc372939ba1529f0cee4a074681a";
-
-// city search logic 
-function cityLocator() {
-    var city = $("#city-search")[0].value.trim();
-    var apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=8146fc372939ba1529f0cee4a074681a"; 
-
-    fetch(apiUrl).then(function (response) {
-        if (response.ok) {
-            response.json()
-            .then(function (data) {
-                $("#city-search")[0].textContent = city + " (" + moment().format('MMM Do YYY, h:mm:ss a') + ")";
-                $("#results").append("cityName");
-
-                var lon = data.coord.lon;
-                var lat = data.coord.lat;
-
-                var location = lat.toString() + " " + lon.toString();
-
-                localStorage.setItem(city, location);
-
-                // update api url to lat/lon position
-                apiUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=minutely,hourly&units=imperial&appid=8146fc372939ba1529f0cee4a074681a";
-
-                fetch(apiUrl)
-                .then(function (newResponse) {
-                    if (newResponse.ok) {
-                        newResponse.json()
-                        .then(function (newData) {
-                            currentWeather(newData)
-                        })
-                    }
-                })
-            })
-        } else {
-            alert("Can't find city. Try again!");
-        }
-    })
+var apiKey = "8146fc372939ba1529f0cee4a074681a";
+moment().format('l');
+/* search logic */
+function search(city) {
+    var apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=" + apiKey;
+    var weatherUrl = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&appid=" + apiKey;
 }
 
-
-// display current and future weather for that city
-function currentWeather(data) {
-    $("weather-results").addClass("visible");
-    // pull and display current weather icon 
-    $("#weather-icon")[0].src = "http://openweathermap.org/img/wn/" + data.current.weather[0].icon + "@2x.png";
-    /* // convert current temp to a fixed single value string and display in farenheit in html
-    $(".temp")[0].textContent = "Temperature: " data.current.temp.toFixed(1) + "\u2109"; */
-    // pull and display current humidity levels
-    $(".humidity")[0].textContent = "Humidity: " + data.current.humidity + "% ";
-    // pull current wind speed and convert to single digit string and display
-    $(".wind")[0].textContent = "Wind Speed: " + data.current.wind_speed.toFixed(1) + " MPH";
-    // pull display current uv index
-    $(".uv")[0].textContent = " " + data.current.uvi;
-
-    // moderate, severe, and favorable logic    
-  /*   if (data.current.uvi < 3) {
-            $(".uv")
-        } */
-}
-// search button logic
-$(".search-btn").on("click", function (event) {
+/* city location logic */
+$("#search-btn").on("click", function(event) {
     event.preventDefault();
-    console.log("click");
-    cityLocator();
-    $("#city-search-form")[0].reset();
+    // set and save searched city variable to localstorage
+    var citySearch = $("#city-search").val().trim();
+    var savedSearch = $(this).siblings("input").val();
+    var saved = [];
+    saved.push(savedSearch);
+    localStorage.setItem('city', JSON.stringify(saved));
 
-})
-
-// save search history to localstorage
-
-// display city name, date, and icon to represent: weather, 
-// temp, humidity, wind speed, and uv index
-
-// view uv index
-// color to indicate whether the conditions are: favorable, moderate, or severe
-
-// view future conditions: 5 day forecast that displays:
-// date, icon to represent weather, temp, wind speed, and humidity 
-
-// display current and future conditions for that city again 
+    search(citySearch);
+    loadSaved();
+});
+/* load localStorage and display on page */
+function loadSaved () {
+    var searchedItem = json.parse(localStorage.getItem('city'));
+    var savedSection = $("<button class='styled-btn btn border text-muted mt-1 shadow-sm bg-white rounded'>").text(searchedItem);
+    var divEl = $("<div>");
+    divEl.append(savedSection)
+    $("#local-search").prepend(divEl);
+    
+}
+$("#local-search").on('click', '.btn', function(event) {
+    event.preventDefault();
+    search($(this).text());
+});
