@@ -5,31 +5,98 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/brands.min.css" integrity="sha512-OivR4OdSsE1onDm/i3J3Hpsm5GmOVvr9r49K3jJ0dnsxVzZgaOJ5MfxEAxCyGrzWozL9uJGKz6un3A7L+redIQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <title>Weather Dashboard</title>
 </head>
 <body>
-    <div class="container-fluid bg-dark text-light text-center">
-        <h1>Weather Dashboard</h1>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 bg-dark">
+                <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                     
+                    <a class="navbar-brand" href="#">Weather Dashboard</a>
+                    
+                </nav>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <h5 class="card-header">
+                        Search for a City:
+                    </h5>
+                    <div class="card-body">
+                <form role="form">
+
+                    <div class="form-group">
+                         
+                        <label for="exampleInputPassword1">
+                            City Search
+                        </label>
+                        <input type="text" class="form-control mr-sm-2" id="city-search" placeholder="Enter a City" />
+                    </div>
+                    
+                    <button type="submit" class="btn btn-style btn-block btn-secondary my-sm-0 my-2" id="search-btn">
+                        Search
+                    </button>
+                </form> 
+                <button type="button" id="clear-btn" class="btn btn-style btn-secondary btn-block my-sm-0 my-2">
+                    Clear
+                </button>
+                                     
+                <form id="local-search" class="mt-1">  
+                    <!-- localStorage search results -->
+                </form>
+            </div>
+        </div>
+     </div>
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-body">
+                        <div id="forecast"></div>
+                        <div id="uv-levels"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <h5 class="card-header">
+                        Weekly Forecast
+                    </h5>
+                    <div class="card-body">
+                        </div>
+                        <hr> 
+                        <div id="weekly" class="row">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!--     <div class="container-fluid bg-dark text-light text-center">
+        <a href="#" class="navbar">
+        <h1><i class="fa-style fa-solid fa-sun-cloud"></i> Weather Dashboard</h1></a>
     </div>
     <div class="container">
-        <div>
-            <div class="col-4 float-left">
+        <div> -->
+<!--             <div class="col-4 float-left"> -->
                 <!-- search section -->
-                <nav class="navbar bg-light mb-5 p-3 bg-light navbar-light shadow-lg bg-white rounded">
+<!--                 <nav class="navbar bg-light mb-5 p-3 bg-light navbar-light shadow-lg bg-white rounded">
                     <h4>Search for a City:</h4>
                         <form class="form-inline">
                             <input id="city-search" class="form-control mr-sm-2" type="search" placeholder="Enter a city">
                             <button id="search-btn" class="btn btn-primary my-sm-0 my-2" type="submit">Search</button>
-                        </form>
+                        </form> -->
                         <!-- localStorage search results -->
-                        <form id="local-search" class="mt-1">
+<!--                         <form id="local-search" class="mt-1">
                         </form>
                 </nav>
-            </div>
+            </div> -->
             <!-- weekly forecast -->
-            <div class="width-style card text-dark bg-light p-2 p-3 rem shadow-lg mb-5 rounded bg-white">
+            <!-- <div class="width-style card text-dark bg-light p-2 p-3 rem shadow-lg mb-5 rounded bg-white">
                 <div id="forecast"></div>
                 <div id="uv-levels"></div>
             </div>
@@ -39,7 +106,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>

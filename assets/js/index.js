@@ -68,7 +68,7 @@ $.ajax({
     // store forecast to an array list //
     var returnForecast = response.list;
     $("#weekly").empty();
-    for (var i = 0; i < returnForecast.length; i += 7) {
+    for (var i = 0; i < returnForecast.length; i += 6) {
         // forecast div element
         var forecastDiv = $("<div class='div-style card text-white bg-primary mx-auto mb-10 p-2 shadow-lg'>");
         // forecast temp, date, and humidty variables
@@ -141,3 +141,9 @@ $("#local-search").on('click', '.btn', function(event) {
     event.preventDefault();
     search($(this).text());
 });
+// clear location history on clear btn click
+$("#clear-btn").on("click", function (event) {
+    event.preventDefault();
+    $("#local-search").html("");
+    localStorage.clear();
+})

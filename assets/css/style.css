@@ -2,8 +2,9 @@
     width: 710;
     height: 300px;
 }
-.styled-btn { 
-    width: 200px;
+.btn-style {
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 .div-style {
     height: auto;
@@ -14,4 +15,15 @@
     text-align: center;
     justify-content: center;
     justify-items: center;
+}
+.fa-style {
+    margin-right: 5px;
+}
+.navbar {
+    color: white;
+    text-decoration: none;
+}
+.navbar a:active {
+    color: grey;
+    text-decoration: none;
 }
