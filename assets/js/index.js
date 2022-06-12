@@ -65,10 +65,26 @@ function search(city) {
         .then(function (response) {
             $('#uv-levels').empty();
             var uv = response.value;
-            var uvDiv = $('<p class="uv">').text("UV Index: " + response.value);
+            var uvDiv = $('<p id="uv">').html("<h6>UV Index: " + response.value + "</h6>");
+    // color code uv index. green under 4            
             $('#uv-levels').html(uvDiv);
+
+                if (response.value < 4 ) {
+                    $("#uv").attr("class", "badge badge-success");
+                }
+                // yellow 5-8
+                else if (response.value < 8) {
+                    $("#uv").attr("class", "badge badge-warning");
+                }
+                // all else red
+                else {
+                    $("#uv").attr("class", "badge badge-danger");
+                }
         });
     });
+
+
+
 
 /* weekly forecast logic */
 $.ajax({
