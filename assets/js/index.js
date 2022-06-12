@@ -14,7 +14,7 @@ function search(city) {
         var date = moment().format('MMMM Do, YYYY');
 
         // city html section and forecast elements //
-        var cityEl = $("<h2 class='card-header bg-light text-dark'>").html("<i class='fa-solid fa-calendar-days mr-1'></i> " + response.name + " - ");
+        var cityEl = $("<h2 class='card-header city bg-light text-dark'>").html("<i class='fa-solid fa-calendar-days mr-1'></i> " + response.name + " - ");
         var dateEl = cityEl.append(" " + date);
         var temp = $("<p>").text("Temperature: " + response.main.temp);
         var humidity = $("<p>").text("Humidity: " + response.main.humidity);
@@ -49,7 +49,7 @@ function search(city) {
             var icon = $('<img>').attr("src", "http://openweathermap.org/img/wn/13d.png");
             icon.attr("style", "width: 60px; height: 60px");
         }
-        var newDivEl = $('<div>')
+        var newDivEl = $('<div class="forecast-style">')
         newDivEl.append(dateEl, icon, temp, humidity, wind);
         $("#forecast").html(newDivEl);
 
@@ -82,7 +82,7 @@ $.ajax({
     for (var i = 0; i < returnForecast.length; i += 6) {
         // forecast div element
         var forecastDiv = $("<div class='div-style card text-white bg-secondary m-1 mb-10 p-2 shadow-lg'>");
-        // forecast temp, date, and humidty variables
+        // forecast temp, date, and humidtiy variables
         var forecastDate = returnForecast[i].dt_txt;
         var setFcDate = forecastDate.substr(0,10);
         var mainTemp = returnForecast[i].main.temp;
@@ -90,38 +90,38 @@ $.ajax({
 
 
         // forecast results html elements 
-        var indexDate = $("<h5 class='card-title'>").text(setFcDate);
+        var indexDate = $("<h5 class='card-title'>").html('<i class="fa-solid fa-calendar-day mr-1"></i> ' + setFcDate);
         var tempEl = $("<p class='card-text'>").text("Temperature: " + mainTemp);
         var humEl = $("<p class='card-text'>").text("Humidity: " + hum); 
 
         var forecastWeather = returnForecast[i].weather[0].main 
         // forecast weather icons 
         if (forecastWeather === "Rain") {
-            var forecastIcon = $('<img>').attr("src", "http://openweathermap.org/img/wn/09d.png");
+            var forecastIcon = $('<img class="center-block">').attr("src", "http://openweathermap.org/img/wn/09d.png");
             forecastIcon.attr("style", "width: 50px; height: 50px");
         } else if (forecastWeather === "Drizzle") {
-            var forecastIcon = $('<img>').attr("src", "http://openweathermap.org/img/wn/11d.png");
+            var forecastIcon = $('<img class="center-block">').attr("src", "http://openweathermap.org/img/wn/11d.png");
             forecastIcon.attr("style", "width: 50px; height: 50px");
         } else if (forecastWeather === "Mist") {
-            var forecastIcon = $('<img>').attr("src", "http://openweathermap.org/img/wn/75d.png");
+            var forecastIcon = $('<img class="center-block">').attr("src", "http://openweathermap.org/img/wn/75d.png");
             forecastIcon.attr("style", "width: 50px; height: 50px");
         } else if (forecastWeather === "Scattered Clouds") {
-            var forecastIcon = $('<img>').attr("src", "http://openweathermap.org/img/wn/03d.png");
+            var forecastIcon = $('<img class="center-block">').attr("src", "http://openweathermap.org/img/wn/03d.png");
             forecastIcon.attr("style", "width: 50px; height: 50px");
         } else if (forecastWeather === "Few Clouds") {
-            var forecastIcon = $('<img>').attr("src", "http://openweathermap.org/img/wn/02d.png");
+            var forecastIcon = $('<img class="center-block">').attr("src", "http://openweathermap.org/img/wn/02d.png");
             forecastIcon.attr("style", "width: 50px; height: 50px");
         } else if (forecastWeather === "Thunderstorm") {
-            var forecastIcon = $('<img>').attr("src", "http://openweathermap.org/img/wn/10d.png");
+            var forecastIcon = $('<img class="center-block">').attr("src", "http://openweathermap.org/img/wn/10d.png");
             forecastIcon.attr("style", "width: 50px; height: 50px");
         } else if (forecastWeather === "Clouds") {
-            var forecastIcon = $('<img>').attr("src", "http://openweathermap.org/img/wn/03d.png");
+            var forecastIcon = $('<img class="center-block">').attr("src", "http://openweathermap.org/img/wn/03d.png");
             forecastIcon.attr("style", "width: 50px; height: 50px");
         } else if (forecastWeather === "Clear") {
-            var forecastIcon = $('<img>').attr("src", "http://openweathermap.org/img/wn/01d.png");
+            var forecastIcon = $('<img class="center-block">').attr("src", "http://openweathermap.org/img/wn/01d.png");
             forecastIcon.attr("style", "width: 50px; height: 50px");
         } else if (forecastWeather === "Snow") {
-            var forecastIcon = $('<img>').attr("src", "http://openweathermap.org/img/wn/13d.png");
+            var forecastIcon = $('<img class="center-block">').attr("src", "http://openweathermap.org/img/wn/13d.png");
             forecastIcon.attr("style", "width: 50px; height: 50px");
         }
 

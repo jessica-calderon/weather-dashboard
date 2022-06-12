@@ -1,15 +1,24 @@
+/* set all font */ 
 * {
     font-family: 'Hind', sans-serif;
     font-family: 'Montserrat', sans-serif;
 }
-
+/* set body view height and width */
+body {
+    width: 100vw;
+    min-height: 100vh;
+}
+/* navbar link style */
 .navbar a:hover {
     color: #000;
     text-decoration: none;
 }
+/* capitalize location search history */
 .search-history .btn {
     text-transform: uppercase;
 }
+
+/* footer link style */
 .footer a {
     color: black;
 }
@@ -17,3 +26,17 @@
     text-decoration: none;
     color: grey;
 }
+ /* MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER */
+ @media screen and (max-width: 980px) {
+
+ }
+ /* media query for tablets and smaller */
+ @media screen and (max-width: 768px) {
+
+ }
+ /* media query for mobile phones and smaller */
+ @media screen and (max-width: 575px) {
+    .city {
+        font-size: 18px;
+    }
+ }

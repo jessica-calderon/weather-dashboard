@@ -20,7 +20,7 @@ A web application that allows users to search for city weather conditions and we
 https://jessica-calderon.github.io/weather-dashboard/
 
 ## Website Preview
-![index](./assets/images/weather-dashboard.gif)
+![index-preview](./assets/images/weather-dashboard.gif)
 
 ## Contribution
 Built with love by Jessica E. Calderon. © 2022
