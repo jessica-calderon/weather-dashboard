@@ -2,10 +2,7 @@
     width: 710;
     height: 300px;
 }
-.btn-style {
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
+
 .div-style {
     height: auto;
     width: 175px;
@@ -26,4 +23,7 @@
 .navbar a:active {
     color: grey;
     text-decoration: none;
+}
+.search-history .btn {
+    text-transform: uppercase;
 }

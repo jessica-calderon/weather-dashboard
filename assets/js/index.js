@@ -15,7 +15,7 @@ function search(city) {
         var date = moment().format('l');
 
         // city html section and forecast elements //
-        var cityEl = $("<h2>").text(response.name);
+        var cityEl = $("<h2 class='card-header'>").text(response.name);
         var dateEl = cityEl.append(" " + date);
         var temp = $("<p>").text("Temperature: " + response.main.temp);
         var humidity = $("<p>").text("Humidity: " + response.main.humidity);
@@ -114,29 +114,47 @@ $.ajax({
 }
 loadSaved();
 
-/* city location logic */
-$("#search-btn").on("click", function(event) {
-    event.preventDefault();
-    // set and save searched city variable to localstorage //
-    var citySearch = $("#city-search").val().trim();
-    var savedSearch = $(this).siblings("input").val();
-    var saved = [];
-    saved.push(savedSearch);
-    localStorage.setItem('city', JSON.stringify(saved));
+    /* city location logic */
 
-    search(citySearch);
-    loadSaved();
-});
+    $("#search-btn").on("click", function (event) {
+        event.preventDefault();
+        // set and save searched city variable to localstorage //
+        var saved = [];
+        var savedSearches = JSON.parse(localStorage.getItem('city'));
+            if (savedSearches) {
+                saved.push(...savedSearches);
+            }
+            var citySearch = $("#city-search").val().trim();
+            //citySearch = citySearch.toLowerCase();
+            if (saved.includes(citySearch)) {
+                return;
+            }
+ 
+            saved.push(citySearch)
 
-/* load localStorage and display on page */
-function loadSaved () {
-    var searchedItem = JSON.parse(localStorage.getItem('city'));
-    var savedSection = $("<button class='styled-btn btn border text-muted mt-1 shadow-sm bg-white rounded'>").text(searchedItem);
-    var divEl = $("<div>");
-    divEl.append(savedSection)
-    $("#local-search").prepend(divEl);
-    
-}
+            localStorage.setItem('city', JSON.stringify(saved));
+
+            search(citySearch);
+
+        var searchHistory = $("<button class='btn-block my-sm-1 my-2 btn border text-muted mt-1 shadow-sm bg-white rounded'>").text(citySearch);
+        var divEl = $("<div>");
+        divEl.append(searchHistory)
+        $("#local-search").prepend(divEl);
+    });
+    function loadSaved() {
+        var searchedItems = JSON.parse(localStorage.getItem('city'));
+            if (searchedItems) {
+                for (let index = 0; index < searchedItems.length; index++) {
+                    const searchedItem = searchedItems[index];
+                    var searchHistory = $("<button class='btn-block my-sm-1 my-2 btn border text-muted mt-1 shadow-sm bg-white rounded'>").text(searchedItem);
+                    var divEl = $("<div>");
+                    divEl.append(searchHistory)
+                    $("#local-search").prepend(divEl);
+                }
+            }
+
+    }
+// clickable location history 
 $("#local-search").on('click', '.btn', function(event) {
     event.preventDefault();
     search($(this).text());
