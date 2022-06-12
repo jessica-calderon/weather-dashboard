@@ -1,29 +1,19 @@
-.width-style {
-    width: 710;
-    height: 300px;
+* {
+    font-family: 'Hind', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
-.div-style {
-    height: auto;
-    width: 175px;
-}
-.img {
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    justify-items: center;
-}
-.fa-style {
-    margin-right: 5px;
-}
-.navbar {
-    color: white;
-    text-decoration: none;
-}
-.navbar a:active {
-    color: grey;
+.navbar a:hover {
+    color: #000;
     text-decoration: none;
 }
 .search-history .btn {
     text-transform: uppercase;
+}
+.footer a {
+    color: black;
+}
+.footer a:hover {
+    text-decoration: none;
+    color: grey;
 }

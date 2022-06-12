@@ -5,7 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/brands.min.css" integrity="sha512-OivR4OdSsE1onDm/i3J3Hpsm5GmOVvr9r49K3jJ0dnsxVzZgaOJ5MfxEAxCyGrzWozL9uJGKz6un3A7L+redIQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind&family=Montserrat&display=swap" rel="stylesheet">
+    <!-- favicon cdn -->
+    <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA8skkANnFpQAk6PIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAQAAABARABARAAABEBABEBAAAAEAAAEAAAAAIiIiIiIgAAIiIiIiIiIAAiIiIiIiIiAAAiIiIiIiIAACIiIiIiIAAAMiIiACIgAAMzIiIAAgAAAzMzIAAAAAADMzMwAAAAAAAzMwAAAAAAAAMwAAAAAAAAAAAAAAAAD++wAA9NMAAOWXAADvvwAAwAcAAIADAACAAQAA4AEAAOADAADgYwAAwHcAAMD/AADA/wAA4f8AAPP/AAD//wAA" rel="icon" type="image/x-icon" />
     <title>Weather Dashboard</title>
 </head>
 <body>
@@ -14,16 +20,16 @@
             <div class="col-md-12 bg-dark">
                 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                      
-                    <a class="navbar-brand" href="#">Weather Dashboard</a>
+                    <a class="navbar-brand nav-link" href="#"><h2><i class="fa-solid fa-cloud-sun-rain mr-1"></i>Weather Dashboard</h2></a>
                     
                 </nav>
             </div>
         </div>
         <div class="row">
             <div class="col-md-4">
-                <div class="card">
+                <div class="card my-3">
                     <h5 class="card-header">
-                        Search for a City:
+                        <i class="fa-solid fa-magnifying-glass-location mr-1"></i> Search for a City:
                     </h5>
                     <div class="card-body">
                 <form role="form">
@@ -31,7 +37,7 @@
                     <div class="form-group">
                          
                         <label for="exampleInputPassword1">
-                            City Search
+                            <i class="fa-solid fa-location-dot mr-1"></i> City Search 
                         </label>
                         <input type="text" class="form-control mr-sm-2" id="city-search" placeholder="Enter a City" />
                     </div>
@@ -44,7 +50,7 @@
                     Clear
                 </button>
                 
-                <h5 class="card-header">Location History: </h5>
+                <h5 class="card-header mt-3"><i class="fa-solid fa-clock-rotate-left mr-1"></i> Location History: </h5>
                 <form id="local-search" class="mt-1 search-history">  
                     <!-- localStorage search results -->
                 </form>
@@ -52,7 +58,7 @@
         </div>
      </div>
             <div class="col-md-8">
-                <div class="card">
+                <div class="card my-3 bg-dark text-light text-center">
                     <div class="card-body">
                         <div id="forecast"></div>
                         <div id="uv-levels"></div>
@@ -62,13 +68,13 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <div class="card">
+                <div class="card my-3">
                     <h5 class="card-header">
-                        Weekly Forecast
+                        <i class="fa-solid fa-cloud-sun mr-1"></i> Weekly Forecast
                     </h5>
                     <div class="card-body">
 
-                        <div id="weekly" class="row">
+                        <div id="weekly" class="row justify-content-center">
                         </div>
                         </div>
                     </div>
@@ -76,6 +82,16 @@
             </div>
         </div>
     </div>
+    <footer class="footer mt-3">
+        <div class="content text-center text-dark">
+          <p>
+            <strong><a href="#">Weather Dashboard</a></strong>
+             by 
+             <a href="https://github.com/jessica-calderon" target="_blank" alt="Jessica Calderon GitHub">Jessica Calderon</a>
+            © 2022
+          </p>
+        </div>
+      </footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

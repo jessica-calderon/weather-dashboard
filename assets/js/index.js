@@ -1,5 +1,4 @@
 var apiKey = "8146fc372939ba1529f0cee4a074681a";
-moment().format('l');
 
 /* search logic */
 function search(city) {
@@ -12,10 +11,10 @@ function search(city) {
     })
     .then(function (response) {
         $("#forecast").empty();
-        var date = moment().format('l');
+        var date = moment().format('MMMM Do, YYYY');
 
         // city html section and forecast elements //
-        var cityEl = $("<h2 class='card-header'>").text(response.name);
+        var cityEl = $("<h2 class='card-header bg-light text-dark'>").html("<i class='fa-solid fa-calendar-days mr-1'></i> " + response.name + " - ");
         var dateEl = cityEl.append(" " + date);
         var temp = $("<p>").text("Temperature: " + response.main.temp);
         var humidity = $("<p>").text("Humidity: " + response.main.humidity);
@@ -70,7 +69,7 @@ $.ajax({
     $("#weekly").empty();
     for (var i = 0; i < returnForecast.length; i += 6) {
         // forecast div element
-        var forecastDiv = $("<div class='div-style card text-white bg-primary mx-auto mb-10 p-2 shadow-lg'>");
+        var forecastDiv = $("<div class='div-style card text-white bg-secondary m-1 mb-10 p-2 shadow-lg'>");
         // forecast temp, date, and humidty variables
         var forecastDate = returnForecast[i].dt_txt;
         var setFcDate = forecastDate.substr(0,10);
