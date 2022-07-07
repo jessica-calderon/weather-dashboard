@@ -1,4 +1,4 @@
-var apiKey = "8146fc372939ba1529f0cee4a074681a";
+var apiKey = "6c6fa74568efdce987aefebf351dfaaa";
 
 /* search logic */
 function search(city) {
