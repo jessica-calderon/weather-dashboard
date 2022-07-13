@@ -1,4 +1,4 @@
-var apiKey = "{WD_API}";
+var apiKey = "6c6fa74568efdce987aefebf351dfaaa";
 
 /* search logic */
 function search(city) {
