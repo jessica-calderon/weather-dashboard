@@ -1,4 +1,4 @@
-var apiKey = "${{ secrets.WD_API }}";
+var apiKey = "{WD_API}";
 
 /* search logic */
 function search(city) {
